@@ -18,7 +18,7 @@ const App = () => {
 
     useEffect(() => {
         const getMovies = async () => {
-            const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=1714aa65`;
+            const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=1714aa65`;
 
             try {
                 const response = await fetch(url);
@@ -38,7 +38,7 @@ const App = () => {
     }, [searchValue]);
 
     const fetchMovieDetails = async (imdbID) => {
-        const url = `http://www.omdbapi.com/?i=${imdbID}&apikey=1714aa65`;
+        const url = `https://www.omdbapi.com/?i=${imdbID}&apikey=1714aa65`;
 
         try {
             const response = await fetch(url);
