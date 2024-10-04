@@ -1,39 +1,38 @@
+/* General Styles */
 body {
-	background: #141414;
-	color: #ffffff;
+    background: #141414;
+    color: #ffffff;
 }
-/* 
-.movie-app > .row {
-	overflow-x: auto;
-	flex-wrap: nowrap;
-} */
 
+/* Movie Image Hover Effect */
 .image-container {
-	position: relative;
-	transition: transform 0.2s;
+    position: relative;
+    transition: transform 0.2s;
 }
 
 .image-container:hover {
-	cursor: pointer;
-	transform: scale(1.1);
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 .image-container:hover .overlay {
-	opacity: 1;
+    opacity: 1;
 }
 
+/* Overlay for Image */
 .overlay {
-	position: absolute;
-	background: rgba(0, 0, 0, 0.8);
-	width: 100%;
-	transition: 0.5s ease;
-	opacity: 0;
-	bottom: 0;
-	font-size: 20px;
-	padding: 20px;
-	text-align: center;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    transition: 0.5s ease;
+    opacity: 0;
+    bottom: 0;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
 }
 
+/* Card Body Styling */
 .card-body {
     display: flex;
     flex-direction: column;
@@ -41,6 +40,7 @@ body {
     height: 100%;
 }
 
+/* Button Styling */
 .card-body .title-buttons {
     display: flex;
     justify-content: space-between;
@@ -54,4 +54,110 @@ body {
 
 .card-text {
     margin-bottom: 10px;
+}
+
+/* Ensure Buttons Have Same Size */
+.title-buttons .btn {
+    flex: 1;
+    margin: 5px;
+    min-width: auto; /* Minimum width ensures both buttons stay same size */
+}
+
+/* App.css */
+
+/* Search box container to hold the input and the icon */
+.search-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Input styling to ensure padding on the right for the icon */
+.search-input {
+    padding-right: 40px; /* Add padding to make space for the icon */
+}
+
+/* Icon styling: positioned absolutely within the container */
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333; /* Icon color */
+    font-size: 1.2rem; /* Adjust the size if needed */
+}
+
+
+/* Responsive Design for Small Devices */
+@media (max-width: 767px) {
+    .movie-app {
+        padding: 0 10px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .title-buttons {
+        display: block;
+        text-align: center;
+    }
+
+    .title-buttons .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Responsive Design for Tablets */
+@media (min-width: 768px) and (max-width: 991px) {
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .title-buttons {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .title-buttons .btn {
+        width: 100%; /* Ensure buttons are of the same width */
+    }
+}
+
+/* Responsive Design for Larger Devices */
+@media (min-width: 992px) {
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .title-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .title-buttons .btn {
+        width: 100%; /* Ensure buttons are of the same width */
+        margin: 0 5px;
+    }
+}
+
+/* Modal Responsiveness */
+.modal-body p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+    .modal-content {
+        width: 100%;
+        margin: 0;
+        /* padding: 10px; */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .modal-content {
+        width: 100%;
+        margin: auto;
+    }
 }

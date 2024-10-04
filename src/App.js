@@ -18,7 +18,8 @@ const App = () => {
 
     useEffect(() => {
         const getMovies = async () => {
-            const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=1714aa65`;
+            const query = searchValue.trim() === '' ? 'avengers' : searchValue;
+            const url = `https://www.omdbapi.com/?s=${query}&apikey=1714aa65`;
 
             try {
                 const response = await fetch(url);
@@ -63,7 +64,6 @@ const App = () => {
         const newFavouriteList = favourites.filter(
             (favourite) => favourite.imdbID !== movie.imdbID
         );
-
         setFavourites(newFavouriteList);
     };
 
@@ -95,12 +95,12 @@ const App = () => {
         <Router>
             <div className='container-fluid movie-app'>
                 <div className='row d-flex align-items-center mt-4 mb-4'>
-                    <MovieListHeading heading='Movies' />
+                    <MovieListHeading heading='MOVIE APP$' />
                     <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
                 </div>
                 <div className='row'>
                     {movies.map((movie) => (
-                        <div key={movie.imdbID} className='col-md-3 mb-4'>
+                        <div key={movie.imdbID} className='col-sm-6 col-md-4 col-lg-3 mb-4'>
                             <Card className="h-100">
                                 <Card.Img variant='top' src={movie.Poster} />
                                 <div className="card-body">
@@ -114,13 +114,13 @@ const App = () => {
                             </Card>
                         </div>
                     ))}
-                </div>  
+                </div>
                 <div className='row mt-4'>
                     <MovieListHeading heading='Favourites' />
                 </div>
                 <div className='row'>
                     {favourites.map((movie) => (
-                        <div key={movie.imdbID} className='col-md-3 mb-4'>
+                        <div key={movie.imdbID} className='col-sm-6 col-md-4 col-lg-3 mb-4'>
                             <Card className="h-100">
                                 <Card.Img variant='top' src={movie.Poster} />
                                 <div className="card-body">
@@ -134,7 +134,7 @@ const App = () => {
                             </Card>
                         </div>
                     ))}
-                </div>  
+                </div>
                 <Modal show={showModal && MovieDetails} onHide={handleCloseModal}>
                     {MovieDetails && (
                         <>
@@ -154,7 +154,7 @@ const App = () => {
                                 <p><strong>Runtime:</strong> {MovieDetails?.Runtime}</p>
                                 <p><strong>IMDB ID:</strong> {MovieDetails?.imdbID}</p>
                                 <p><strong>IMDB Rating:</strong> {MovieDetails?.imdbRating}</p>
-                                <p><strong>IMDB VOTES:</strong> {MovieDetails?.imdbVotes}</p>
+                                <p><strong>IMDB Votes:</strong> {MovieDetails?.imdbVotes}</p>
                                 <p><strong>Plot:</strong> {MovieDetails?.Plot}</p>
                             </Modal.Body>
                             <Modal.Footer>
